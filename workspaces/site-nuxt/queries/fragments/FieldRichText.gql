@@ -1,0 +1,80 @@
+fragment FieldRichText on VizyNodeInterface {
+    ... on VizyNode_Paragraph {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on VizyNode_BulletList {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on VizyNode_OrderedList {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on VizyNode_HardBreak {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on richText_heading_BlockType {
+        type: blockTypeHandle
+        heading
+        headingTag
+        headingTheme
+        margin
+        blockWidth
+    }
+    ... on richText_quote_BlockType {
+        type: blockTypeHandle
+        quote {
+            nodes {
+                ... on VizyNode_Paragraph {
+                    type
+                    tagName
+                    content
+                    html
+                }
+            }
+        }
+        citation
+        textAlignment
+        margin
+        blockWidth
+    }
+    ... on richText_button_BlockType {
+        type: blockTypeHandle
+        button {
+            type
+            text
+            ariaLabel
+            title
+            target
+            url
+        }
+        theme
+        margin
+        blockWidth
+    }
+    ... on richText_socialLinks_BlockType {
+        type: blockTypeHandle
+        socialMediaLinks {
+            ... on socialMediaLinks_BlockType {
+                accountLink
+                accountType
+            }
+        }
+        margin
+        blockWidth
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "projectId": "mmswk7",
+  "integrationFolder": "cypress/integration",
+  "chromeWebSecurity": false,
+  "nodeVersion": "bundled",
+  "retries": 1,
+  "video": true,
+  "videoUploadOnPasses": false,
+  "defaultCommandTimeout": 15000,
+  "env": {
+    "SiteWideProtection": "4Qh@Zyg#qtM!!&NL"
+  }
+}

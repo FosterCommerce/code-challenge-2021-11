@@ -1,0 +1,27 @@
+fragment Images on images_Asset {
+    ...ImagesFields
+    ...ImagesOriginal
+    ...ImagesRatio1x1
+}
+
+fragment ImagesFields on images_Asset {
+    altText
+    url
+    width
+    height
+    hasFocalPoint
+    focalPoint
+    extension
+}
+
+fragment ImagesOriginal on images_Asset {
+    originalJpg: url @imagerSrcset (handle: "originalJpg")
+    originalWebp: url @imagerSrcset (handle: "originalWebP")
+    originalPlaceholder: url @imagerTransform (width: 16, format: "png", return: "url")
+}
+
+fragment ImagesRatio1x1 on images_Asset {
+    ratio1x1Jpg: url @imagerSrcset (handle: "ratio1x1Jpg")
+    ratio1x1Webp: url @imagerSrcset (handle: "ratio1x1WebP")
+    ratio1x1Placeholder: url @imagerTransform (width: 16, height: 16, mode: "crop", format: "png", return: "url")
+}

@@ -1,0 +1,102 @@
+#import "./fragments/FieldContentBlocks.gql"
+#import "./fragments/Images.gql"
+
+query EntriesBlog (
+    $limit: Int = 150
+    $offset: Int = 0
+    $slug: [String] = ["*"]
+    $uri: [String] = ["*", null]
+    $type: [String] = ["*"]
+) {
+    entries (
+        section: ["blog"]
+        type: $type
+        slug: $slug
+        uri: $uri
+        limit: $limit
+        offset: $offset
+    ) {
+        id
+        title
+        typeHandle
+        language
+        uri
+        url
+        slug
+        seomatic(asArray: true) {
+            metaScriptContainer
+            metaTitleContainer
+            metaTagContainer
+            metaJsonLdContainer
+            metaLinkContainer
+        }
+        ...TypeBlogArticle
+        ...TypeBlogPodcast
+    }
+}
+
+fragment TypeBlogArticle on EntryInterface {
+    ... on blog_article_Entry {
+        subheading
+        contentBlocks {
+            nodes {
+                ...FieldContentBlocks
+            }
+        }
+        blogCategories {
+            id
+            title
+        }
+        resources {
+            ... on resources_resource_BlockType {
+                resourcelink {
+                    type
+                    text
+                    ariaLabel
+                    title
+                    target
+                    url
+                }
+            }
+        }
+        previewImage {
+            ...Images
+        }
+        previewSummary
+        keywords
+    }
+}
+
+fragment TypeBlogPodcast on EntryInterface {
+    ... on blog_podcast_Entry {
+        subheading
+        mediaUrl
+        episodeNumber
+        contentBlocks {
+            nodes {
+                ...FieldContentBlocks
+            }
+        }
+        blogCategories {
+            id
+            title
+        }
+        resources {
+            ... on resources_resource_BlockType {
+                resourcelink {
+                    type
+                    text
+                    ariaLabel
+                    title
+                    target
+                    url
+                }
+            }
+        }
+        previewImage {
+            ...Images
+        }
+        previewSummary
+        keywords
+    }
+}

@@ -1,0 +1,30 @@
+fragment FieldSummary on VizyNodeInterface {
+    ... on VizyNode_Paragraph {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on VizyNode_BulletList {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on VizyNode_OrderedList {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+    ... on VizyNode_HardBreak {
+        type
+        tagName
+        content
+        marks
+        html
+    }
+}

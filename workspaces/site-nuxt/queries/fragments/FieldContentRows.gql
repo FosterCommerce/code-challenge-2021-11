@@ -1,0 +1,18 @@
+#import "./FieldContentBlocks.gql"
+
+fragment FieldContentRows on contentRows_NeoField {
+    ... on contentRows_rowContent_BlockType {
+        contentBlocks {
+            nodes {
+                ...FieldContentBlocks
+            }
+        }
+        type: typeHandle
+        width
+        elementType
+    }
+    ... on contentRows_rowSpacer_BlockType {
+        type: typeHandle
+        height
+    }
+}

@@ -1,0 +1,21 @@
+.env
+.env.sh
+.editorconfig
+.idea
+.vscode
+/vendor/
+node_modules/
+.DS_Store
+web/assets/imager/*
+web/storybook
+web/dist/
+web/static/
+ansible_hosts
+.vault_password
+
+workspaces/site-nuxt/debug.log
+workspaces/site-nuxt/dist/*
+
+# Local Netlify folder
+.netlify
+!workspaces/site-nuxt/.netlify

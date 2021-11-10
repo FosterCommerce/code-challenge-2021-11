@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "fostercommerce",
+  "workspaces": [
+    "workspaces/*"
+  ],
+  "devDependencies": {
+    "eslint-plugin-chai-friendly": "^0.6.0"
+  }
+}

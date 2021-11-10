@@ -1,0 +1,12 @@
+{
+  "name": "Foster Commerce",
+  "schemaPath": "project_schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Remote GraphQL Endpoint": {
+        "url": "${env: CRAFT_API_URL}/api",
+        "introspect": true
+      }
+    }
+  }
+}

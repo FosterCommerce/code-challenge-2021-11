@@ -1,0 +1,197 @@
+#import "./FieldQuote.gql"
+#import "./FieldRichText.gql"
+#import "./FieldSummary.gql"
+#import "./Images.gql"
+
+fragment FieldContentBlocks on VizyNodeInterface {
+    ... on VizyNode_Paragraph {
+        type
+        tagName
+        content
+        html
+    }
+    ... on VizyNode_BulletList {
+        type
+        tagName
+        content
+        html
+    }
+    ... on VizyNode_OrderedList {
+        type
+        tagName
+        content
+        html
+    }
+    ... on VizyNode_HardBreak {
+        type
+        tagName
+        content
+        html
+    }
+    ... on contentBlocks_heading_BlockType {
+        type: blockTypeHandle
+        heading
+        headingTag
+        headingTheme
+        margin
+        blockWidth
+    }
+    ... on contentBlocks_quote_BlockType {
+        type: blockTypeHandle
+        citation
+        textAlignment
+        margin
+        blockWidth
+        quote {
+            nodes {
+                ...FieldQuote
+            }
+        }
+    }
+    ... on contentBlocks_button_BlockType {
+        type: blockTypeHandle
+        theme
+        margin
+        blockWidth
+        button {
+            type
+            text
+            ariaLabel
+            title
+            target
+            url
+        }
+    }
+    ... on contentBlocks_code_BlockType {
+        type: blockTypeHandle
+        codeBlock
+        codeLanguage
+        caption
+        margin
+        blockWidth
+    }
+    ... on contentBlocks_socialLinks_BlockType {
+        type: blockTypeHandle
+        margin
+        blockWidth
+        socialMediaLinks {
+            ... on socialMediaLinks_BlockType {
+                accountLink
+                accountType
+            }
+        }
+    }
+    ... on contentBlocks_image_BlockType {
+        type: blockTypeHandle
+        caption
+        margin
+        blockWidth
+        imageShape
+        image {
+            ...Images
+        }
+    }
+    ... on contentBlocks_imageAndText_BlockType {
+        type: blockTypeHandle
+        mediaAlignment
+        margin
+        blockWidth
+        imageShape
+        image {
+            ...Images
+        }
+        richText {
+            nodes {
+                ...FieldRichText
+            }
+        }
+    }
+    ... on contentBlocks_podcast_BlockType {
+        type: blockTypeHandle
+        mediaUrl
+        margin
+        blockWidth
+    }
+    ... on contentBlocks_spacer_BlockType {
+        type: blockTypeHandle
+        height
+    }
+    ... on contentBlocks_callout_BlockType {
+        type: blockTypeHandle
+        theme
+        branded
+        margin
+        blockWidth
+        richText {
+            nodes {
+                ...FieldRichText
+            }
+        }
+    }
+    ... on contentBlocks_cardGallery_BlockType {
+        type: blockTypeHandle
+        gridType
+        margin
+        blockWidth
+        cards {
+            ... on cards_card_BlockType {
+                cardCaption
+                cardImage {
+                    ...Images
+                }
+                cardLink {
+                    type
+                    text
+                    ariaLabel
+                    title
+                    target
+                    url
+                }
+            }
+        }
+    }
+    ... on contentBlocks_softwareGallery_BlockType {
+        type: blockTypeHandle
+        gridType
+        margin
+        blockWidth
+        softwareEntries {
+            ... on software_plugin_Entry {
+                title
+                image {
+                    ...Images
+                }
+                summary {
+                    nodes {
+                        ...FieldSummary
+                    }
+                }
+                externalUrl
+            }
+        }
+    }
+    ... on contentBlocks_blogGallery_BlockType {
+        type: blockTypeHandle
+        blogTypes
+        gridType
+        margin
+        blockWidth
+    }
+    ... on contentBlocks_subscribe_BlockType {
+        type: blockTypeHandle
+        margin
+        blockWidth
+        subscribeEntry {
+            ... on reusable_subscribe_Entry {
+                title
+                heading
+                summary {
+                    nodes {
+                        ...FieldSummary
+                    }
+                }
+                confirmation
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+#import "./fragments/FieldContentRows.gql"
+
+query EntryHome {
+	entry(section: "home") {
+		title
+		slug
+		language
+		typeHandle
+		sectionHandle
+		seomatic(asArray: true) {
+			metaScriptContainer
+			metaTitleContainer
+			metaTagContainer
+			metaJsonLdContainer
+			metaLinkContainer
+		}
+		... on home_home_Entry {
+			heading
+			subheading
+			button {
+				type
+				text
+				ariaLabel
+				title
+				target
+				url
+			}
+			heroDesign
+			contentRows {
+				...FieldContentRows
+			}
+			previewImage {
+				url
+			}
+			previewSummary
+			keywords
+		}
+	}
+}

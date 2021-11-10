@@ -1,0 +1,14 @@
+/* Import any base or vendor style sheets here */
+@import '~/assets/css/base/layout.css';
+@import '~/assets/css/base/typography.css';
+@import '~/assets/css/base/inputs.css';
+@import '~/assets/css/vendor/swiper.css';
+
+/* Tailwind styles are imported here ... */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.content-container {
+	@apply container max-w-[1170px];
+}

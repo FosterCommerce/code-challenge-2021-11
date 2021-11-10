@@ -1,0 +1,8 @@
+fragment FieldQuote on VizyNodeInterface {
+    ... on VizyNode_Paragraph {
+        type
+        tagName
+        content
+        html
+    }
+}

@@ -1,0 +1,3 @@
+.card-wrapper {
+	@apply relative bg-white p-10 bg-opacity-60 backdrop-filter backdrop-blur shadow-lg;
+}

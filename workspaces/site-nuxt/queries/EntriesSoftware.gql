@@ -1,0 +1,32 @@
+#import "./fragments/FieldSummary.gql"
+#import "./fragments/Images.gql"
+
+query EntriesSoftware (
+    $limit: Int = 20
+    $offset: Int = 0
+    $slug: [String] = ["*"]
+) {
+    entries (
+        section: ["software"],
+        slug: $slug
+        limit: $limit
+        offset: $offset
+    ) {
+        id
+        title
+        typeHandle
+        language
+        slug
+        ... on software_plugin_Entry {
+            image {
+                ...Images
+            }
+            summary {
+                nodes {
+                    ...FieldSummary
+                }
+            }
+            externalUrl
+        }
+    }
+}

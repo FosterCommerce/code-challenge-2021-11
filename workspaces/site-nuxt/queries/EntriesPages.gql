@@ -1,0 +1,101 @@
+#import "./fragments/FieldContentRows.gql"
+#import "./fragments/Forms.gql"
+
+query EntriesPages (
+    $limit: Int = 25
+    $offset: Int = 0
+    $slug: [String] = ["*"]
+    $uri: [String] = ["*", null]
+) {
+    entries (
+        section: ["pages"]
+        slug: $slug
+        uri: $uri
+        limit: $limit
+        offset: $offset
+    ) {
+        id
+        title
+        typeHandle
+        sectionHandle
+        language
+        uri
+        url
+        slug
+        seomatic(asArray: true) {
+            metaScriptContainer
+            metaTitleContainer
+            metaTagContainer
+            metaJsonLdContainer
+            metaLinkContainer
+        }
+        parent {
+            id
+            title
+            uri
+        }
+        ...TypePagesGeneral
+        ...TypePagesBlog
+        ...TypePagesContact
+    }
+}
+
+fragment TypePagesGeneral on EntryInterface {
+    ... on pages_general_Entry {
+        heading
+        subheading
+        button {
+            type
+            text
+            ariaLabel
+            title
+            target
+            url
+        }
+        heroDesign
+        contentRows {
+            ...FieldContentRows
+        }
+        previewImage {
+            url
+        }
+        previewSummary
+        keywords
+    }
+}
+
+fragment TypePagesBlog on EntryInterface {
+    ... on pages_blog_Entry {
+        heading
+        subheading
+        blogTypes
+        blogCategories {
+            id
+            title
+        }
+        resultsPerPage
+        previewImage {
+            url
+        }
+        previewSummary
+        keywords
+    }
+}
+
+fragment TypePagesContact on EntryInterface {
+    ... on pages_contact_Entry {
+        heading
+        subheading
+        forms {
+            ...Forms
+        }
+        contentRows {
+            ...FieldContentRows
+        }
+        previewImage {
+            url
+        }
+        previewSummary
+        keywords
+    }
+}

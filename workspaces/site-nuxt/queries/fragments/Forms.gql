@@ -1,0 +1,68 @@
+fragment Forms on FormInterface {
+    id
+    uid
+    handle
+    title
+    csrfToken {
+        name
+        value
+    }
+    settings {
+        submitAction
+        submitActionTab
+        submitActionUrl
+        submitActionFormHide
+        submitActionMessageHtml
+        redirectUrl
+        redirectEntry {
+            title
+            url
+            uri
+        }
+        errorMessageHtml
+    }
+    pages {
+        ... on PageInterface {
+            id
+            settings {
+                submitButtonLabel
+                buttonsPosition
+            }
+            rows {
+                ... on RowInterface {
+                    id
+                    fields {
+                        ... on FieldInterface {
+                            id
+                            handle
+                            type
+                            label: name
+                            labelPosition
+                            instructions
+                            instructionsPosition
+                            placeholder
+                            required
+                            limit
+                            limitType
+                            limitAmount
+                            errorMessage
+                            includeInEmail
+                            enableConditions
+                            conditions
+                            enableContentEncryption
+                            visibility
+
+                            ... on Field_Radio {
+                                defaultValue
+                                options {
+                                    label
+                                    value
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

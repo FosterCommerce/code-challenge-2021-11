@@ -1,0 +1,41 @@
+query GlobalNavigation {
+    primaryNav: nodes (navHandle: "primaryNavigation", level: 1) {
+        ...NavFragment
+    }
+    softwareNav: nodes (navHandle: "softwareNavigation", level: 1) {
+        ...NavFragment
+    }
+    footerNav: nodes (navHandle: "footerNavigation", level: 1) {
+        ...NavFragment
+    }
+    socialNav: nodes (navHandle: "socialNavigation", level: 1) {
+        ...NavFragment
+    }
+}
+
+fragment NavFragment on NodeInterface {
+    id
+    title
+    url
+    nodeUri
+    type
+    newWindow
+    classes
+    children {
+        title
+        url
+        nodeUri
+        newWindow
+        classes
+    }
+    ... on primaryNavigation_Node {
+        icon
+        highlight
+    }
+    ... on footerNavigation_Node {
+        icon
+    }
+    ... on socialNavigation_Node {
+        icon
+    }
+}
