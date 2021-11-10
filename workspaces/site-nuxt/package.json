@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "storybook": "nuxt storybook",
-    "storybook:generate": "nuxt storybook build:web"
+    "storybook:generate": "nuxt storybook build"
   },
   "dependencies": {
     "@nuxt/http": "^0.6.4",
