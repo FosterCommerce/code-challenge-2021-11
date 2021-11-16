@@ -6,6 +6,7 @@
 	import BaseLayoutColumns from '@/components/BaseLayoutColumns';
 	import BaseLayoutGrid from '@/components/BaseLayoutGrid';
 	import SoftwarePluginDropdown from '@/components/SoftwarePluginDropdown';
+	const shipStationLogo = require('@/assets/images/shipstation-logo.svg');
 	export default {
 		name: 'SoftwarePlugin',
 		components: {
@@ -68,6 +69,7 @@
 		data() {
 			return {
 				active: false,
+				logo: shipStationLogo,
 			};
 		},
 		methods: {
@@ -161,7 +163,7 @@
 							</div>
 							<template v-slot:media>
 								<BaseImage
-									:src="'../../assets/images/shipstation-logo.svg'"
+									:src="logo"
 									:imgClasses="'h-[225.99px] min-w-[225.99px] -mt-7'"
 									alt="ShipStation Logo"
 								/>
