@@ -161,7 +161,7 @@
 							</div>
 							<template v-slot:media>
 								<BaseImage
-									:src="'assets/images/shipstation-logo.svg'"
+									:src="'../../assets/images/shipstation-logo.svg'"
 									:imgClasses="'h-[225.99px] min-w-[225.99px] -mt-7'"
 									alt="ShipStation Logo"
 								/>
