@@ -79,7 +79,6 @@
 				var dd = String(newDate.getDate());
 				var mm = String(newDate.getMonth() + 1);
 				var yyyy = newDate.getFullYear();
-
 				return mm + '/' + dd + '/' + yyyy;
 			},
 		},
