@@ -32,7 +32,7 @@
 		<client-only>
 			<prism :lang="language">{{ content }}</prism>
 		</client-only>
-		<figcaption v-if="caption" class="block mt-1 pl-2 font-mono text-sm text-secondary">
+		<figcaption v-if="caption" class="block pl-2 mt-1 font-mono text-sm text-secondary">
 			{{ caption }}
 		</figcaption>
 	</figure>

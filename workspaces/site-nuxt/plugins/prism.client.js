@@ -27,16 +27,16 @@ import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import 'prismjs/plugins/show-language/prism-show-language';
 
 Vue.component('Prism', {
-	props: {
-		lang: {
-			type: String,
-			default: 'js',
-		},
-	},
-	mounted() {
-		Prism.highlightAll();
-	},
-	template:
-		// eslint-disable-next-line no-template-curly-in-string
-		'<div class="prism"><pre class="line-numbers" :class="`language-${lang}`"><code><slot /></code></pre></div>',
+    props: {
+        lang: {
+            type: String,
+            default: 'js',
+        },
+    },
+    // mounted() {
+    //     Prism.highlightAll();
+    // },
+    template:
+        // eslint-disable-next-line no-template-curly-in-string
+        '<div class="prism"><pre class="line-numbers" :class="`language-${lang}`"><code><slot /></code></pre></div>',
 });

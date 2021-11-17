@@ -9,6 +9,16 @@
 				default: 'vertical',
 				validator: (propValue) => ['vertical', 'horizontal'].includes(propValue),
 			},
+			order: {
+				type: Number,
+				required: true,
+				default: 2,
+			},
+			zValue: {
+				type: String,
+				required: true,
+				default: '30',
+			},
 		},
 	};
 </script>
@@ -17,16 +27,18 @@
 	<article
 		:class="`align-${alignment} relative flex flex-col justify-start items-start px-8 pb-8 | lg:px-10 lg:pb-10 ${
 			alignment === 'horizontal'
-				? 'md:flex-row md:justify-between md:items-end lg:px-16 lg:pb-14 align-horizontal'
+				? 'md:flex-row md:justify-between lg:px-16 lg:pb-14 align-horizontal'
 				: ''
 		}`"
 	>
-		<div :class="`order-2 mt-8 || content ${alignment === 'horizontal' ? 'md:pl-12' : ''}`">
+		<div
+			:class="`order-${order}  m-auto || content ${alignment === 'horizontal' ? 'md:pl-12' : ''}`"
+		>
 			<!-- @slot The content slot -->
 			<slot />
 		</div>
 		<div
-			:class="`relative z-30 w-full order-1 pointer-events-none ${
+			:class="`relative z-${zValue} w-full order-1 pointer-events-none ${
 				alignment === 'horizontal' ? 'md:w-[330px]' : ''
 			}`"
 		>
