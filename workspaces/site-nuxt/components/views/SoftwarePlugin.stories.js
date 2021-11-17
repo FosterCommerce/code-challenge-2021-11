@@ -55,8 +55,8 @@ export const Page = ((args) => ({
 }));
 Page.args = {
     hero: {
-        "linkName": "Buy Now",
-        "link": " https://plugins.craftcms.com/shipstationconnect",
+        linkName: "Buy Now",
+        link: " https://plugins.craftcms.com/shipstationconnect",
         "price": '59$',
         "title": 'ShipStation Connect',
         "image": "https://s3.us-east-2.amazonaws.com/fostercommerce-site/images/logo-shipstation.svg",

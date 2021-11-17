@@ -76,7 +76,7 @@
 			<div class="relative">
 				<div class="flex text-lg font-medium leading-10 text-center">
 					{{ selectedItem }}
-					<img @click="showOptions()" src="../../assets/images/arrow_down.svg" />
+					<img @click="showOptions()" class="ml-3" src="../../assets/images/arrow_down.svg" />
 				</div>
 				<div v-if="isShown" class="bg-white">
 					<div v-for="option in options" :key="option.id">
